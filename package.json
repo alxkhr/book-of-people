@@ -1,0 +1,43 @@
+{
+  "name": "book-of-people",
+  "version": "0.0.1",
+  "description": "A web app for your social memory.",
+  "private": true,
+  "scripts": {
+    "lint": "tslint 'src/**/*.ts?(x)'",
+    "build": "webpack --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alxkhr/book-of-people.git"
+  },
+  "keywords": [
+    "pwa",
+    "serviceworker",
+    "react",
+    "redux",
+    "redux-saga",
+    "typescript",
+    "css-grid"
+  ],
+  "author": "Alexander Kehr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alxkhr/book-of-people/issues"
+  },
+  "homepage": "https://github.com/alxkhr/book-of-people#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "ts-loader": "^4.4.1",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "@types/react": "^16.4.0",
+    "@types/react-dom": "^16.0.6",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
