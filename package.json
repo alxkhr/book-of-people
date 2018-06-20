@@ -18,14 +18,15 @@
     "redux",
     "redux-saga",
     "typescript",
-    "css-grid"
+    "css-grid",
+    "firestore"
   ],
   "author": "Alexander Kehr",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/alxkhr/book-of-people/issues"
   },
-  "homepage": "https://github.com/alxkhr/book-of-people#readme",
+  "homepage": "https://book-of-people.netlify.com/",
   "devDependencies": {
     "html-webpack-plugin": "^3.2.0",
     "ts-loader": "^4.4.1",
@@ -39,6 +40,7 @@
     "@types/react-dom": "^16.0.6",
     "@types/react-redux": "^6.0.2",
     "@types/redux-logger": "^3.0.6",
+    "firebase": "^5.0.4",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
