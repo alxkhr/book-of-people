@@ -3,7 +3,9 @@
   "extends": ["tslint:recommended"],
   "jsRules": {},
   "rules": {
-    "quotemark": [true, "single", "jsx-double"]
+    "quotemark": [true, "single", "jsx-double"],
+    "interface-name": false,
+    "typedef": [true, "call-signature", "property-declaration"]
   },
   "rulesDirectory": []
 }
