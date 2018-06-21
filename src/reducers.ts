@@ -1,6 +1,6 @@
 import { AnyAction, combineReducers } from 'redux';
 
-import { LOAD_NOTES, RECEIVE_NOTES } from './actions';
+import { LOAD_NOTES, UPDATE_VISUAL_NOTES } from './actions';
 import Note from './types/note';
 import AppState from './types/state/app-state';
 import NoteState from './types/state/note-state';
@@ -8,16 +8,24 @@ import NoteState from './types/state/note-state';
 function notes(state = { isFetching: false, items: [] as Note[] }, action: AnyAction): NoteState {
   switch (action.type) {
     case LOAD_NOTES:
-      return { ...state, isFetching: true };
-    case RECEIVE_NOTES:
-      return {
-        ...state,
-        isFetching: false,
-        items: action.notes,
-      };
+      return loadNotes(state);
+    case UPDATE_VISUAL_NOTES:
+      return updateVisualNotes(state, action.notes);
     default:
       return state;
   }
+}
+
+function loadNotes(state: NoteState): NoteState {
+  return { ...state, isFetching: true };
+}
+
+function updateVisualNotes(state: NoteState, newNotes: Note[]): NoteState {
+  return {
+    ...state,
+    isFetching: false,
+    items: newNotes,
+  };
 }
 
 export default combineReducers<AppState>({ notes });
