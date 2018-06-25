@@ -2,7 +2,8 @@ import 'firebase/firestore';
 
 import { firestore, initializeApp } from 'firebase/app';
 
-import Note from './types/note';
+import Note, { forceNote, isNote } from '../shared/model/note';
+import SyncStatus from './model/sync-status';
 
 initializeApp({
   apiKey: 'AIzaSyDm4g5n8eSwwi148tg8BQBKVmyZedx99D8',
@@ -23,9 +24,20 @@ export function fetchNotes(): Promise<Note[]> {
     .then((querySnapshot) => {
       const notes: Note[] = [];
       querySnapshot.forEach((doc) => {
-        const { lastName, firstName } = doc.data();
-        notes.push({ id: doc.id, lastName, firstName });
+        notes.push(convertToNote(doc));
       });
       return notes;
     });
+}
+
+function convertToNote(document: firestore.QueryDocumentSnapshot): Note {
+  const note = { id: document.id, syncStatus: SyncStatus.Unknown, ...document.data() } as Note;
+  if (isNote(note)) {
+    note.syncStatus = SyncStatus.Synchronized;
+    return note;
+  } else {
+    note.syncStatus = SyncStatus.SyncError;
+    forceNote(note);
+    return note;
+  }
 }

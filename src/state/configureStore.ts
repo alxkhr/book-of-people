@@ -2,9 +2,9 @@ import { applyMiddleware, createStore, Store } from 'redux';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 
+import AppState from './model/app-state';
 import reducer from './reducers';
 import sagas from './sagas';
-import AppState from './types/state/app-state';
 
 const saga = createSagaMiddleware();
 const logger = createLogger();

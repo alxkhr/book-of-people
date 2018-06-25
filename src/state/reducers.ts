@@ -1,11 +1,13 @@
 import { AnyAction, combineReducers } from 'redux';
 
+import Note from '../shared/model/note';
 import { LOAD_NOTES, UPDATE_VISUAL_NOTES } from './actions';
-import Note from './types/note';
-import AppState from './types/state/app-state';
-import NoteState from './types/state/note-state';
+import AppState from './model/app-state';
+import NoteState from './model/note-state';
 
-function notes(state = { isFetching: false, items: [] as Note[] }, action: AnyAction): NoteState {
+const defaultNoteState = { isFetching: false, items: [] as Note[] };
+
+function notes(state: NoteState = defaultNoteState, action: AnyAction): NoteState {
   switch (action.type) {
     case LOAD_NOTES:
       return loadNotes(state);

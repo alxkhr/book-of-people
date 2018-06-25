@@ -1,6 +1,6 @@
 import { AnyAction } from 'redux';
 
-import Note from './types/note';
+import Note from '../shared/model/note';
 
 export const LOAD_NOTES = 'LOAD_NOTES';
 export const UPDATE_VISUAL_NOTES = 'UPDATE_VISUAL_NOTES';

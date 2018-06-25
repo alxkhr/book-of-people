@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 
-import { loadNotes } from '../actions';
-import Note from '../types/note';
-import AppState from '../types/state/app-state';
+import Note from '../shared/model/note';
+import { loadNotes } from '../state/actions';
+import AppState from '../state/model/app-state';
 
 interface AppPropTypes {
   isFetching: boolean;

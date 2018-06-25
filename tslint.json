@@ -5,7 +5,8 @@
   "rules": {
     "quotemark": [true, "single", "jsx-double"],
     "interface-name": false,
-    "typedef": [true, "call-signature", "property-declaration"]
+    "typedef": [true, "call-signature", "property-declaration"],
+    "object-literal-sort-keys": false
   },
   "rulesDirectory": []
 }
