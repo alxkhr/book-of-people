@@ -1,6 +1,8 @@
 enum SyncStatus {
   Unknown,
+  Fetching,
   Synchronized,
+  Outdated,
   SyncError,
   Draft,
 }

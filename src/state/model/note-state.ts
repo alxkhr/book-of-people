@@ -1,6 +1,7 @@
 import Note from '../../shared/model/note';
+import SyncStatus from '../../sync/model/sync-status';
 
 export default interface NoteState {
-  isFetching: boolean;
+  syncStatus: SyncStatus;
   items: Note[];
 }
