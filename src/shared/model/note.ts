@@ -4,6 +4,7 @@ import Tag from './tag';
 
 export default interface Note {
   id: string;
+  timestamp: number;
   syncStatus: SyncStatus;
   firstName: string;
   lastName: string;
@@ -32,6 +33,7 @@ export default interface Note {
 export function isNote(note: Note): boolean {
   return (
     note.id !== undefined &&
+    note.timestamp !== undefined &&
     note.firstName !== undefined &&
     note.lastName !== undefined &&
     note.syncStatus !== undefined &&
@@ -42,9 +44,20 @@ export function isNote(note: Note): boolean {
 }
 
 export function forceNote(object: any): Note {
-  const { id, syncStatus, firstName, lastName, properties, tags, lists, ...rest } = object;
+  const {
+    id,
+    timestamp,
+    syncStatus,
+    firstName,
+    lastName,
+    properties,
+    tags,
+    lists,
+    ...rest
+  } = object;
   return {
     id: id || generateMissingId(),
+    timestamp: timestamp || new Date().getTime(),
     syncStatus: syncStatus || SyncStatus.Unknown,
     firstName: firstName || '',
     lastName: lastName || '',

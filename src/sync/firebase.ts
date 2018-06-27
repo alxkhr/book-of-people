@@ -26,8 +26,16 @@ export function fetchNotes(): Promise<Note[]> {
       querySnapshot.forEach((doc) => {
         notes.push(convertToNote(doc));
       });
+      notes.sort((a, b) => b.timestamp - a.timestamp);
       return notes;
     });
+}
+
+export function saveNote({ id, ...data }: Note): Promise<void> {
+  return db
+    .collection('people')
+    .doc(id)
+    .set(data);
 }
 
 function convertToNote(document: firestore.QueryDocumentSnapshot): Note {

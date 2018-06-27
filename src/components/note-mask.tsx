@@ -39,10 +39,16 @@ class NoteMask extends React.PureComponent<NoteMaskPropTypes, NoteMaskState> {
   public onSubmit(event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
     if (this.props.note && this.props.note.id) {
-      this.props.changed(Object.assign({}, this.props.note, this.state, { syncStatus: SyncStatus.Outdated }));
+      this.props.changed(
+        Object.assign({}, this.props.note, this.state, {
+          syncStatus: SyncStatus.Outdated,
+          timestamp: new Date().getTime(),
+        }),
+      );
     } else {
       this.props.created({
         id: generateDraftId(),
+        timestamp: new Date().getTime(),
         syncStatus: SyncStatus.Draft,
         properties: {}, // TODO implement input
         tags: [], // TODO implement input
